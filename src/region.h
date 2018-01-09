@@ -38,7 +38,11 @@ class region {
     product resource_type();
     string resource_name();
 
+    /*! Adds neighbor to the list.
+     */
     bool add_neighbor(int, int);
+
+    bool has_neighbor(const int);
 
 };
 

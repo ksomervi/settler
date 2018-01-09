@@ -19,11 +19,11 @@ int main() {
                       // use random_device is generally only used to seed 
                       // a PRNG such as mt19937
   }
-  for (auto p : hist) {
+  for (auto& p : hist) {
     std::cout << p.first << " : " << std::string(p.second/100, '*') << '\n';
   }
  
-  for (auto p : hist) {
+  for (auto& p : hist) {
     std::cout << p.first << " : " << p.second << '\n';
   }
  

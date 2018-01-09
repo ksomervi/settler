@@ -53,20 +53,38 @@ region::product region::resource_type() {
   return _prod;
 }
 
-bool region::add_neighbor(int r, int border) {
+//Perhaps move this to the board level.
+bool region::add_neighbor(int rid, int border) {
   if (border < 0 or border > 6) {
     //_log->error("invalid border")
     return false;
   }
   
-  if (r < 0 or r > 18) {
+  if (rid < 0 or rid > 18) {
     //_log->error("invalid region")
     return false;
   }
-  
-  _neighbors[border] = r;
+
+  if (has_neighbor(rid) == false) {
+    cerr << "rid(" << rid << ") already a neighbor" << endl;
+    return false;
+  }
+
+  _neighbors[border] = rid;
+
   return true;
 }
+
+bool region::has_neighbor(const int rid) {
+  for (auto& p: _neighbors) {
+    if (rid == p.second) {
+      return p.first;
+    }
+  }
+  return false;
+
+}
+
 
 int region::id() {
   return _id;
