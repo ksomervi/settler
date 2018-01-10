@@ -3,22 +3,25 @@
 
 #include "logger.h"
 #include "player.h"
-#include "region.h"
 
 #include <vector>
 using std::vector;
 
 class town {
   private:
-    vector<road *>;// max roads is 3
+    level _lvl;
     player *_p;
-
+    //vector<int> _regions; // holds id of adjacent regions for resource 
+                          // collection
 
   public:
-    enum town_class = { town, city };
-    //typedef enum _town_class town_class;
+    enum level = { town, city };
 
-    town();
+    town(player*, logger* =NULL);
+
+    void upgrade();
+    level development_level(); 
+    //void regions (int, int, int);
 
 };
 #endif //!define(SETTLER_TOWN_H)
