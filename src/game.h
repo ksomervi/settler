@@ -20,6 +20,7 @@ class game {
     vector<player*> _players;
     board *_board;
     int _res_key;
+    int _cur_player;
 
     std::mt19937 _gen;
     std::uniform_int_distribution<> _dist;
@@ -32,7 +33,10 @@ class game {
     void initialize();
 
     int roll_dice();
-    void quit();
+    void take_turn();
+    void quit(bool =false);
+
+    void dump_board();
 
 };
 #endif //!define(SETTLER_GAME_H)

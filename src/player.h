@@ -2,7 +2,11 @@
 #define SETTLER_PLAYER_H
 
 #include "logger.h"
+#include "resource.h"
 //#include "town.h"
+
+#include <map>
+using std::map;
 
 #include <vector>
 using std::vector;
@@ -12,7 +16,7 @@ class player {
     logger *_log;
     int _id;
     int _score;
-    //vector<towns*> _towns;
+    map<product, int> _resources;
 
   public:
 
@@ -22,6 +26,12 @@ class player {
 
     int id();
     void id(int);
+
+    int add_resource(product, int =1);
+    bool spend_resource(product, int =1);
+    void dump_resources();
+    int score();
+    void score(int);
 
 };
 #endif //!define(SETTLER_PLAYER_H)
