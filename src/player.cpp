@@ -45,3 +45,12 @@ void player::dump_resources() {
     _log->debug(std::to_string(r.second) + " units of " + resource_name(r.first));
   }
 }
+
+int player::score() {
+  return _score;
+}
+
+void player::score(int score) {
+  _score = score;
+}
+
