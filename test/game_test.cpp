@@ -9,6 +9,7 @@ int main() {
   game * g = new game(3, l);
   g->initialize();
 
+  g->print_scores();
   g->dump_board();
 
   g->take_turn();
