@@ -8,11 +8,9 @@ using std::map;
 using std::vector;
 
 #include "logger.h"
+#include "resource.h"
 
 class region {
-  public:
-    enum product {none, wood, brick, ore, cattle, wheat};
-
   private:
     product _prod;
     bool _robber;
@@ -36,7 +34,6 @@ class region {
 
     void resource_type(product);
     product resource_type();
-    string resource_name();
 
     /*! Adds neighbor to the list.
      */

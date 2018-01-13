@@ -13,6 +13,7 @@ region::region() {
   _sel = 0;
 }
 
+#if 0
 string region::resource_name() {
   string rv;
   switch (_prod) {
@@ -44,12 +45,13 @@ string region::resource_name() {
   return rv;
 
 }
+#endif
 
 void region::resource_type(product p) {
   _prod = p;
 }
 
-region::product region::resource_type() {
+product region::resource_type() {
   return _prod;
 }
 
