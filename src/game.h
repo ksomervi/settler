@@ -36,6 +36,7 @@ class game {
     void take_turn();
     void quit(bool =false);
 
+    void print_scores();
     void dump_board();
 
 };

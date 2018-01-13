@@ -50,19 +50,27 @@ void game::take_turn() {
   //
   _cur_player = (_cur_player + 1) % _players.size();
 }//end take_turn()
-  
+
 int game::roll_dice() {
-  int rv = (_dist(_gen) + _dist(_gen)); 
+  int rv = (_dist(_gen) + _dist(_gen));
   ++_hist[rv];
   return rv;
 }
+
+void game::print_scores() {
+  _log->debug("Scores ...");
+  for (auto p:_players) {
+    _log->debug("Player " + to_string(p->id()) + ": "
+        + to_string(p->score()) + " pts");
+  }
+}//end print_scores()
 
 void game::quit(bool dump) {
   _log->debug("quitting...");
   if (dump) {
     _log->debug("Dice roll histogram:");
     for (auto p : _hist) {
-      _log->debug( std::to_string(p.first) + " : " + std::to_string(p.second) 
+      _log->debug( std::to_string(p.first) + " : " + std::to_string(p.second)
           + " : " + std::string(p.second/100, '*'));
     }
   }
