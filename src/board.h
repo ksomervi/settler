@@ -16,9 +16,13 @@ class board {
   private:
     logger *_log;
     vector<region*> _regions;
-    //map<int, vector<int> > _neighbors;
+    map<int, vector<int> > _neighbors;
     //vector<road*> _roads;
     map<int, vector<region*> > _fortune;
+
+    void _make_neighbors(int, int);
+    int _ring_max(int);
+    void _initialize_neighbors();
 
   public:
     //typedef vector<region*> region_set;
